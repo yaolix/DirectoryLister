@@ -1,0 +1,13 @@
+name: 生成目录列表
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: 生成目录页面
+        uses: jayanta525/github-pages-directory-listing@v4
+        with:
+          folder: . # 要展示的目录（仓库根目录）
+      - name: 部署到GitHub Pages
+        uses: actions/deploy-pages@v4
